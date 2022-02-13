@@ -44,4 +44,4 @@ public class Audio {
 }
 '@
 
-[Audio]::Volume = $args[0]
+[Audio]::Volume = 0
