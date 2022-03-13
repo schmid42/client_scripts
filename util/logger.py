@@ -4,7 +4,7 @@ import os
 from datetime import datetime
 import requests
 import socket
-
+import json
 
 load_dotenv()  # take environment variables from .env.
 
@@ -13,7 +13,7 @@ class State(Enum):
     DEBUG = "DEBUG"
     INFO = "INFO"
     SUCCESS = "SUCCESS"
-    WARNING = "WARING"
+    WARNING = "WARNING"
     ERROR = "ERROR"
     CRITICAL = "CRITICAL"
 
@@ -39,7 +39,10 @@ class ServerLogger:
         '''
         Posts a log message to the server.
         '''
-        head = {'Authorization': 'bearer ' + self.token}
+        headers = {
+            'Authorization': 'bearer ' + self.token
+        }
+
         data = {
             'data': {
                 'state': state.value,
@@ -49,7 +52,9 @@ class ServerLogger:
             }
         }
 
-        r = requests.post(self.url_log, json=data, headers=head)
+        print(data)
+
+        r = requests.post(self.url_log, json=data, headers=headers)
 
         return r
 
