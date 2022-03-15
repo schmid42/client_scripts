@@ -7,8 +7,8 @@
    Creation Date:  13.02.2022
 #>
 
-#$scriptsPath = $env:commonprogramfiles + "\client_scripts"
-$scriptsPath = "Z:\scripts\client_scripts"
+$scriptsPath = $env:commonprogramfiles + "\client_scripts"
+#$scriptsPath = "Z:\scripts\client_scripts"
 
 Set-Location -Path $scriptsPath
 
