@@ -4,7 +4,7 @@ from util.logger import State
 
 server_logger = ServerLogger()
 
-choco = subprocess.Popen([ "choco"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+choco = subprocess.Popen([ "choco", "$env:CommonProgramFiles\chocolatey\packages\lehrer\packages.config", "-Y"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 
 out = choco.communicate()[0]
 

@@ -7,22 +7,21 @@
    Creation Date:  13.02.2022
 #>
 
-$scriptsPath = $env:commonprogramfiles + "\client_scripts"
-#$scriptsPath = "Z:\scripts\client_scripts"
+$scriptsPath = $env:USERPROFILE + "\client_scripts"
 
 Set-Location -Path $scriptsPath
 
-Write-Host "creating virtual environment (python -m venv venv)"
+#Write-Host "creating virtual environment (python -m venv venv)"
 Start-Process -NoNewWindow -Wait -FilePath "python" -ArgumentList "-m", "venv", "venv"
 
-Write-Host "activating virtual environment"
+#Write-Host "activating virtual environment"
 .\venv\Scripts\activate
 
-Write-Host "upgrading pip (python -m pip install --upgrade pip)"
-Start-Process -NoNewWindow -Wait -FilePath "python" -ArgumentList "-m", "pip", "install", "--upgrade", "pip"
+#Write-Host "upgrading pip (python -m pip install --upgrade pip)"
+Start-Process -NoNewWindow -Wait -FilePath "python" -ArgumentList "-m", "pip", "install", "--upgrade", "pip", "--cert", "\\esausrv01\NETLOGON\cert\SecurityAppliance_SSL_CA.pem"
 
-Write-Host "installing python packages (pip install -r requirements.txt)"
-Start-Process -NoNewWindow -Wait -FilePath "pip" -ArgumentList "install", "-r", "requirements.txt"
+#Write-Host "installing python packages (pip install -r requirements.txt)"
+Start-Process -NoNewWindow -Wait -FilePath "pip" -ArgumentList "install", "-r", "requirements.txt", "--cert", "\\esausrv01\NETLOGON\cert\SecurityAppliance_SSL_CA.pem"
 
-Write-Host "deactivating virtual environment"
+#Write-Host "deactivating virtual environment"
 deactivate
