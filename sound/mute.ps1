@@ -1,4 +1,13 @@
-﻿Add-Type -TypeDefinition @'
+﻿<#
+.Synopsis
+   Mutes sound on client computers.
+.NOTES
+   Version:        0.1
+   Author:         Peter Schmid <schmidp@edith-stein-schule.net>
+   Creation Date:  25.03.2022
+#>
+
+Add-Type -TypeDefinition @'
 using System.Runtime.InteropServices;
 
 [Guid("5CDF2C82-841E-4546-9722-0CF74078229A"), InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
